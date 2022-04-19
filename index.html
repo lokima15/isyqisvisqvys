@@ -56,7 +56,29 @@
 
                                 </span>
                         </p>
-                        <iframe src="http://positivolife.info/form/" width="100%" height="100%"></iframe>
+                        <form method="post" id="myForm" class="order_form order_all orderForm" action="#">
+                            <input name="offerid" type="hidden" value="7000">
+                            <input name="country_code" type="hidden" value="MA">
+                            <input name="shipment_price" type="hidden" value="0">
+                            <input name="total_price" type="hidden" value="399.0">
+                            <input name="price_vat" type="hidden" value="0.0">
+                            <input name="shipment_vat" type="hidden" value="0.0">
+                            <input name="total_price_wo_shipping" type="hidden" value="399.0">
+                            <input name="price" type="hidden" value="399">
+                            <input name="old_price" type="hidden" value="798">
+                            <input name="currency" type="hidden" value="dirham">
+                            <input name="package_id" type="hidden" value="0">
+                            <input name="package_prices" type="hidden" value="{}">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="اسمك ولقبك" name="name" required="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control phone_n mob1 val2" style="text-align:right" dir="ltr" placeholder="رقم الهاتف" name="phone" id="center_ok" maxlength="15" minlength="8" required="">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="order-btn sub2" id="submitButton" value="اطلب مع الخصم">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -511,8 +533,30 @@
 
                                     </span>
                             </p>
-                            <iframe src="http://positivolife.info/form/" width="100%" height="100%"></iframe>
-
+                            <form method="post" id="myForm" class="order_form order_all2  orderForm" action="#">
+                              <input name="offerid" type="hidden" value="7000">
+                              <input name="country_code" type="hidden" value="MA">
+                              <input name="shipment_price" type="hidden" value="0">
+                              <input name="total_price" type="hidden" value="399.0">
+                              <input name="price_vat" type="hidden" value="0.0">
+                              <input name="shipment_vat" type="hidden" value="0.0">
+                              <input name="total_price_wo_shipping" type="hidden" value="399.0">
+                              <input name="price" type="hidden" value="399">
+                              <input name="old_price" type="hidden" value="798">
+                              <input name="currency" type="hidden" value="dirham">
+                              <input name="package_id" type="hidden" value="0">
+                              <input name="package_prices" type="hidden" value="{}">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="اسمك ولقبك" name="name" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control phone_n2 mob1 val3" placeholder="رقم الهاتف" name="phone" maxlength="8" minlength="15" style="text-align:right" dir="ltr" required="">
+                                </div>
+                                <div class="error-box err3"> +212XXXXXXXXXX</div>
+                                <div class="form-group">
+                                    <input type="submit" class="order-btn sub3" value="اطلب مع الخصم">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -536,6 +580,29 @@
             $('.secondsSH').html(s);
         }, 1000);
     });
+  </script>
+
+<script>
+$('input#submitButton').click( function() {
+    $.post( 'some-url', $('form#myForm').serialize(), function(data) {
+         // ... do something with response from server
+       },
+       'json' // I expect a JSON response
+    );
+});
+
+$('input#submitButton').click( function() {
+    $.ajax({
+        url: 'http://positivolife.info/thankyou/index.php',
+        type: 'post',
+        dataType: 'json',
+        data: $('form#myForm').serialize(),
+        success: function(data) {
+          window.location.href = "https://www.google.com";
+
+                 }
+    });
+});
 </script>
 
 </body></html>
